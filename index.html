@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GiftOrbit — Find the Gift in the Universe Around Them</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎁</text></svg>" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- CDN Dependencies: React 18, ReactDOM 18, Three.js, and Babel Standalone -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <!-- Root React Mount Container -->
+  <div id="root"></div>
+
+  <!-- Local Server Guidance for file:// Protocol -->
+  <div id="file-protocol-warning" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #241017; border: 1px solid #DC2626; color: #FFF7F7; padding: 14px 22px; border-radius: 12px; z-index: 99999; font-family: 'Inter', sans-serif; font-size: 13px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); text-align: center; max-width: 90%;">
+    <strong>Notice:</strong> Browser security restricts loading modular scripts directly from <code>file:///</code>.
+    <br />Double-click <strong>start.bat</strong> in this folder to launch via the local server, or run <code>python -m http.server</code>.
+  </div>
+
+  <script>
+    if (window.location.protocol === 'file:') {
+      // Check if root has rendered after a moment; if not, show helper
+      setTimeout(function() {
+        var root = document.getElementById('root');
+        if (!root || !root.children.length) {
+          document.getElementById('file-protocol-warning').style.display = 'block';
+        }
+      }, 1500);
+    }
+  </script>
+
+  <!-- Modular Scripts -->
+  <script src="constants.js"></script>
+  <script type="text/babel" src="icons.js"></script>
+  <script type="text/babel" src="universe.js"></script>
+  <script type="text/babel" src="components.js"></script>
+  <script type="text/babel" src="app.js"></script>
+</body>
+</html>
